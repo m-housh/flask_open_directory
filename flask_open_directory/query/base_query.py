@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Union, Iterable, Any, Tuple, ContextManager
+from typing import Union, Iterable, Any, Tuple
 from contextlib import contextmanager
 import ldap3
 
@@ -202,7 +202,7 @@ class BaseQuery(QueryABC):
                 raise TypeError()
 
     @contextmanager
-    def connection_ctx(self) -> ContextManager[Union[ldap3.Connection, None]]:
+    def connection_ctx(self) -> Union[ldap3.Connection, None]:
         """A context manager that tries to find a connection to use.  If a
         connection is found on the instance or the ``open_directory`` of an
         instance, then that will be used.  If not it will try to create one

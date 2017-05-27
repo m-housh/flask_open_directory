@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import abc
-from typing import ContextManager, Union
+from typing import Union
 from contextlib import contextmanager
 import ldap3
 
@@ -46,8 +46,7 @@ class OpenDirectoryABC(metaclass=abc.ABCMeta):
 
     @contextmanager
     @abc.abstractmethod
-    def connection_ctx(self
-                       ) -> ContextManager[ConnectionCtx]:  # pragma: no cover
+    def connection_ctx(self) -> ConnectionCtx:  # pragma: no cover
         """A context manager to yield an :class:`ldap3.Connection`, this should
         try to create a connection regardless of if a flask application is
         running.
