@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Union, ContextManager
+from typing import Union
 from flask import _app_ctx_stack
 from contextlib import contextmanager
 import ldap3
@@ -87,7 +87,7 @@ class BaseOpenDirectory(OpenDirectoryABC):
             return ctx.open_directory_connection
 
     @contextmanager
-    def connection_ctx(self) -> ContextManager[ldap3.Connection]:
+    def connection_ctx(self) -> ldap3.Connection:
         """A context manager that will use the shared connection if a flask
         application context is available if not it will create a connection
         for running one-off commands.
