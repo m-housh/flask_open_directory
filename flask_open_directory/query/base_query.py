@@ -6,6 +6,10 @@ import ldap3
 from .query_abc import QueryABC
 from ..model import ModelABC
 from ..base import OpenDirectoryABC
+from .._compat import ContextManager
+
+
+ConnectionCtx = ContextManager[Union[None, ldap3.Connection]]
 
 
 def _quote_if_str(val):
@@ -171,7 +175,7 @@ class BaseQuery(QueryABC):
                 self._ldap_attributes = [value]
 
     @property
-    def connection(self) -> Union[ldap3.Connection, None]:
+    def connection(self) -> ConnectionCtx:
         """An :class:`ldap3.Connection` for the query.  If this is not set
         explicitly, then we will see if an ``open_directory`` is set on the
         instance and return it's ``connection``, which could still be ``None``,
