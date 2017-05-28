@@ -21,7 +21,7 @@ test_requirements = [
 
 setup(
     name='flask_open_directory',
-    version='0.1.0',
+    version='0.1.1',
     description="MacOS OpenDirectory Authorization Middleware for Flask",
     long_description=readme + '\n\n' + history,
     author="Michael Housh",
