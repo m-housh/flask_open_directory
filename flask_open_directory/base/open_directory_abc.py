@@ -4,8 +4,10 @@ from typing import Union
 from contextlib import contextmanager
 import ldap3
 
+from .._compat import ContextManager
 
-ConnectionCtx = Union[None, ldap3.Connection]
+
+ConnectionCtx = ContextManager[Union[None, ldap3.Connection]]
 
 
 class OpenDirectoryABC(metaclass=abc.ABCMeta):

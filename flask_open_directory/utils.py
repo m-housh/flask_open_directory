@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from typing import Union
 from flask import request
-from functools import wraps
 
 
 def base_dn_from_url(url: str) -> str:

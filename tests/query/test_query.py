@@ -24,7 +24,9 @@ def test_Query_filter(user_query):
 def test_Query_filter_multiple_kwargs(user_query):
     assert user_query.search_filter == user_query._default_search_filter
     user_query.filter(username='testuser', cn='Test User')
-    assert user_query.search_filter == '(&(uid=testuser)(cn=Test User))'
+    assert '(&' in user_query.search_filter
+    assert '(uid=testuser)' in user_query.search_filter
+    assert '(cn=Test User)' in user_query.search_filter
 
 
 def test_Query_filter_is_chainable(user_query):

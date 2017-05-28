@@ -42,8 +42,11 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
+        'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Environment :: MacOS X',
+        'Framework :: Flask',
     ],
     test_suite='tests',
     tests_require=test_requirements
